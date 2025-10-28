@@ -1,6 +1,7 @@
 package com.easyjava.utils;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -12,20 +13,20 @@ public class PropertiesUtils {
         InputStream is = null;
         try {
             is = PropertiesUtils.class.getClassLoader().getResourceAsStream("application.properties");
-            props.load(is);
+            props.load(new InputStreamReader(is, "gbk"));
 
             Iterator<Object> itrator = props.keySet().iterator();
             while (itrator.hasNext()) {
                 String key = (String) itrator.next();
                 PROPER_MAP.put(key, props.getProperty(key));
             }
-        } catch (Exception e){
+        } catch (Exception e) {
 
-        }finally {
-            if(is!=null){
-                try{
+        } finally {
+            if (is != null) {
+                try {
                     is.close();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

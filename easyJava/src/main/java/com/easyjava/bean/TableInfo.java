@@ -7,7 +7,7 @@ import java.util.Map;
 public class TableInfo {
     /**
      * 表名
-    */
+     */
     private String tableName;
 
     /**
@@ -23,7 +23,7 @@ public class TableInfo {
     /**
      * 标注释
      */
-    private  String comment;
+    private String comment;
 
     /**
      * 字段信息
@@ -31,9 +31,15 @@ public class TableInfo {
     private List<FieldInfo> fieldList;
 
     /**
+     * 扩展字段信息
+     */
+    private List<FieldInfo> fieldExtendList;
+
+
+    /**
      * 唯一索引集合
      */
-    private Map<String,List<FieldInfo>> keyIndexMap = new LinkedHashMap<>();
+    private Map<String, List<FieldInfo>> keyIndexMap = new LinkedHashMap<>();
 
     /**
      * 说否有date类型
@@ -70,6 +76,7 @@ public class TableInfo {
     public String getBeanParamName() {
         return beanParamName;
     }
+
     public void setBeanParamName(String beanParamName) {
         this.beanParamName = beanParamName;
     }
@@ -90,11 +97,11 @@ public class TableInfo {
         this.fieldList = fieldList;
     }
 
-    public Map<String,List<FieldInfo>> getKeyIndexMap() {
+    public Map<String, List<FieldInfo>> getKeyIndexMap() {
         return keyIndexMap;
     }
 
-    public void setKeyIndexMap(Map<String,List<FieldInfo>> keyIndexMap) {
+    public void setKeyIndexMap(Map<String, List<FieldInfo>> keyIndexMap) {
         this.keyIndexMap = keyIndexMap;
     }
 
@@ -122,5 +129,11 @@ public class TableInfo {
         this.haveBigDecimal = haveBigDecimal;
     }
 
+    public List<FieldInfo> getFieldExtendList() {
+        return fieldExtendList;
+    }
 
+    public void setFieldExtendList(List<FieldInfo> fieldExtendList) {
+        this.fieldExtendList = fieldExtendList;
+    }
 }
