@@ -68,14 +68,13 @@ public class FieldInfo {
         this.comment = comment;
     }
 
-    public Boolean getIsAutoIncrement() {
+    public Boolean getAutoIncrement() {
         return isAutoIncrement;
     }
 
-    public void setIsAutoIncrement(Boolean isAutoIncrement) {
+    public void setAutoIncrement(Boolean isAutoIncrement) {
         this.isAutoIncrement = isAutoIncrement;
     }
-
 
 
 }
