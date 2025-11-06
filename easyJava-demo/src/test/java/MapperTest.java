@@ -45,8 +45,6 @@ public class MapperTest {
     public void insert() {
         ProductInfo productInfo = new ProductInfo();
         productInfo.setCode("10006");
-        productInfo.setSkuType(6);
-        productInfo.setColorType(0);
         productInfo.setCreateTime(new Date());
         productInfo.setCreateDate(new Date());
         this.productInfoMapper.insert(productInfo);
