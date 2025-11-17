@@ -1,0 +1,124 @@
+package com.easyjava.controller;
+
+import com.easyjava.entity.vo.ResponseVO;
+import com.easyjava.entity.po.ProductInfo;
+import com.easyjava.entity.query.ProductInfoQuery;
+import com.easyjava.service.ProductInfoService;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * @Description:商品信息Controller
+ * @author:lhc
+ * @date:2025/11/17
+*/
+@RestController
+@RequestMapping("/productInfo")
+public class ProductInfoController extends ABaseController {
+
+	@Resource
+	 private ProductInfoService productInfoService;
+
+	@RequestMapping("loadDataList")
+	public ResponseVO loadDataList(ProductInfoQuery query) {
+		return getSuccessResponseVO(productInfoService.findListByPage(query));
+	}
+
+	/**
+	 * 新增
+	*/
+	public ResponseVO add(ProductInfo bean) {
+		this.productInfoService.add(bean);
+		return getSuccessResponseVO(null);
+	}
+
+	/**
+	 * 批量新增
+	*/
+	public ResponseVO addBatch(@RequestBody List<ProductInfo> listBean) {
+		this.productInfoService.addBatch(listBean);
+		return getSuccessResponseVO(null);
+	}
+
+	/**
+	 * 批量新增/修改
+	*/
+	public ResponseVO addOrUpdateBatch(@RequestBody List<ProductInfo> listBean) {
+		this.productInfoService.addOrUpdateBatch(listBean);
+		return getSuccessResponseVO(null);
+	}
+
+
+	/**
+	 * 根据Id查询
+	*/
+	public ResponseVO getProductInfoById(Integer id) {
+		return getSuccessResponseVO(this.productInfoService.getProductInfoById(id));
+	}
+
+	/**
+	 * 根据Id更新
+	*/
+	public ResponseVO updateProductInfoById(ProductInfo bean, Integer id) {
+		this.productInfoService.updateProductInfoById(bean, id);
+		return getSuccessResponseVO(null);
+	}
+
+	/**
+	 * 根据Id删除
+	*/
+	public ResponseVO deleteProductInfoById(Integer id) {
+		this.productInfoService.deleteProductInfoById(id);
+		return getSuccessResponseVO(null);
+	}
+
+	/**
+	 * 根据Code查询
+	*/
+	public ResponseVO getProductInfoByCode(String code) {
+		return getSuccessResponseVO(this.productInfoService.getProductInfoByCode(code));
+	}
+
+	/**
+	 * 根据Code更新
+	*/
+	public ResponseVO updateProductInfoByCode(ProductInfo bean, String code) {
+		this.productInfoService.updateProductInfoByCode(bean, code);
+		return getSuccessResponseVO(null);
+	}
+
+	/**
+	 * 根据Code删除
+	*/
+	public ResponseVO deleteProductInfoByCode(String code) {
+		this.productInfoService.deleteProductInfoByCode(code);
+		return getSuccessResponseVO(null);
+	}
+
+	/**
+	 * 根据SkuTypeAndColorType查询
+	*/
+	public ResponseVO getProductInfoBySkuTypeAndColorType(Integer skuType, Integer colorType) {
+		return getSuccessResponseVO(this.productInfoService.getProductInfoBySkuTypeAndColorType(skuType, colorType));
+	}
+
+	/**
+	 * 根据SkuTypeAndColorType更新
+	*/
+	public ResponseVO updateProductInfoBySkuTypeAndColorType(ProductInfo bean, Integer skuType, Integer colorType) {
+		this.productInfoService.updateProductInfoBySkuTypeAndColorType(bean, skuType, colorType);
+		return getSuccessResponseVO(null);
+	}
+
+	/**
+	 * 根据SkuTypeAndColorType删除
+	*/
+	public ResponseVO deleteProductInfoBySkuTypeAndColorType(Integer skuType, Integer colorType) {
+		this.productInfoService.deleteProductInfoBySkuTypeAndColorType(skuType, colorType);
+		return getSuccessResponseVO(null);
+	}
+}
