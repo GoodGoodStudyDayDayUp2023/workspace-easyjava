@@ -15,7 +15,7 @@ import java.util.Date;
 /**
  * @Description:商品信息
  * @author:lhc
- * @date:2025/10/29
+ * @date:2025/11/17
 */
 public class ProductInfo implements Serializable {
 	/**

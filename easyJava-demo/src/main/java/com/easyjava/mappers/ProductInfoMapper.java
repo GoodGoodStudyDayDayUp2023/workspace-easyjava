@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 /**
  * @Description:商品信息Mapper
  * @author:lhc
- * @date:2025/10/29
+ * @date:2025/11/17
 */
 public interface ProductInfoMapper<T, P> extends BaseMapper {
 	/**
