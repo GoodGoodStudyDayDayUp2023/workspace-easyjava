@@ -54,7 +54,7 @@ public class BuildTable {
                 String comment = tableResult.getString("comment");
 
                 String beanName = tableName;
-                if (Constants.IGNORE_TABLE_PERFIX) {
+                if (Constants.IGNORE_TABLE_PREFIX) {
                     beanName = tableName.substring(beanName.indexOf("_") + 1);
                 }
 

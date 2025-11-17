@@ -3,7 +3,6 @@ package com.easyjava.builder;
 import com.easyjava.bean.Constants;
 import com.easyjava.bean.FieldInfo;
 import com.easyjava.bean.TableInfo;
-import com.easyjava.utils.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,8 +11,8 @@ import java.io.*;
 import java.util.List;
 import java.util.Map;
 
-public class BuilderMapperXml {
-    private static final Logger logger = LoggerFactory.getLogger(BuilderMapperXml.class);
+public class BuildMapperXml {
+    private static final Logger logger = LoggerFactory.getLogger(BuildMapperXml.class);
 
     private static final String BASE_COLUMN_LIST = "base_column_list";
 
