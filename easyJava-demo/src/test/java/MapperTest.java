@@ -1,6 +1,6 @@
 
 
-import com.easyjava.RunApplication;
+import com.easyjava.RunDemoApplication;
 import com.easyjava.entity.po.ProductInfo;
 import com.easyjava.entity.query.ProductInfoQuery;
 import com.easyjava.mappers.ProductInfoMapper;
@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = RunApplication.class)  // 顺序调整一下
+@SpringBootTest(classes = RunDemoApplication.class)  // 顺序调整一下
 public class MapperTest {
 
     @Resource
@@ -38,7 +38,7 @@ public class MapperTest {
         for (ProductInfo productInfo : dataList) {
             System.out.println(productInfo);
         }
-        Long count = productInfoMapper.selectCount(query);
+        Integer count = productInfoMapper.selectCount(query);
         System.out.println("查询结果数量: " + count);
     }
 
@@ -120,7 +120,7 @@ public class MapperTest {
 
         productInfo = new ProductInfo();
         productInfo.setProductName("update by sku and color 1,2");
-        Long count = productInfoMapper.updateBySkuTypeAndColorType(productInfo, 1, 2);
+        Integer count = productInfoMapper.updateBySkuTypeAndColorType(productInfo, 1, 2);
         System.out.println(count);
     }
 
