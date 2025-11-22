@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @Description:用户信息Service
  * @author:lhc
- * @date:2025/11/22
+ * @date:2025/11/23
 */
 public interface UserInfoService{
 

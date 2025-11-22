@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @Description:用户信息Service
  * @author:lhc
- * @date:2025/11/22
+ * @date:2025/11/23
 */
 @Service("userInfoService")
 public class UserInfoServiceImpl implements UserInfoService {
@@ -26,6 +26,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 根据条件查询列表
 	*/
+	@Override
 	public List<UserInfo> findListByParam(UserInfoQuery query) {
 		return this.userInfoMapper.selectList(query);
 	}
@@ -33,6 +34,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 根据条件查询数量
 	*/
+	@Override
 	public Integer findCountByParam(UserInfoQuery query) {
 		return this.userInfoMapper.selectCount(query);
 	}
@@ -40,6 +42,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 分页查询
 	*/
+	@Override
 	public PaginationResultVO<UserInfo> findListByPage(UserInfoQuery query) {
 		Integer count = this.findCountByParam(query);
 		Integer pageSize = query.getPageSize() == null ? PageSize.SIZE15.getSize() : query.getPageSize();
@@ -53,6 +56,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 新增
 	*/
+	@Override
 	public Integer add(UserInfo bean) {
 		return this.userInfoMapper.insert(bean);
 	}
@@ -60,6 +64,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 批量新增
 	*/
+	@Override
 	public Integer addBatch(List<UserInfo> listBean) {
 		if (listBean == null || listBean.isEmpty()) {
 			return 0;
@@ -70,6 +75,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 批量新增/修改
 	*/
+	@Override
 	public Integer addOrUpdateBatch(List<UserInfo> listBean) {
 		if (listBean == null || listBean.isEmpty()) {
 			return 0;
@@ -81,6 +87,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 根据UserId查询
 	*/
+	@Override
 	public UserInfo getUserInfoByUserId(String userId) {
 		return this.userInfoMapper.selectByUserId(userId);
 	}
@@ -88,6 +95,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 根据UserId更新
 	*/
+	@Override
 	public Integer updateUserInfoByUserId(UserInfo bean, String userId) {
 		return this.userInfoMapper.updateByUserId(bean, userId);
 	}
@@ -95,6 +103,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 根据UserId删除
 	*/
+	@Override
 	public Integer deleteUserInfoByUserId(String userId) {
 		return this.userInfoMapper.deleteByUserId(userId);
 	}
@@ -102,6 +111,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 根据Email查询
 	*/
+	@Override
 	public UserInfo getUserInfoByEmail(String email) {
 		return this.userInfoMapper.selectByEmail(email);
 	}
@@ -109,6 +119,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 根据Email更新
 	*/
+	@Override
 	public Integer updateUserInfoByEmail(UserInfo bean, String email) {
 		return this.userInfoMapper.updateByEmail(bean, email);
 	}
@@ -116,6 +127,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/**
 	 * 根据Email删除
 	*/
+	@Override
 	public Integer deleteUserInfoByEmail(String email) {
 		return this.userInfoMapper.deleteByEmail(email);
 	}

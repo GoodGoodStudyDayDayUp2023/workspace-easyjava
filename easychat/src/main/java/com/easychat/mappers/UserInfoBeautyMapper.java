@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
  * @Description:靓号表
 Mapper
  * @author:lhc
- * @date:2025/11/22
+ * @date:2025/11/23
 */
 public interface UserInfoBeautyMapper<T, P> extends BaseMapper {
 	/**

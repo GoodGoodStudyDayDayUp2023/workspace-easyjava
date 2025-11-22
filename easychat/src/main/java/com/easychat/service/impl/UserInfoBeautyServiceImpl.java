@@ -16,7 +16,7 @@ import java.util.List;
  * @Description:靓号表
 Service
  * @author:lhc
- * @date:2025/11/22
+ * @date:2025/11/23
 */
 @Service("userInfoBeautyService")
 public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
@@ -27,6 +27,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据条件查询列表
 	*/
+	@Override
 	public List<UserInfoBeauty> findListByParam(UserInfoBeautyQuery query) {
 		return this.userInfoBeautyMapper.selectList(query);
 	}
@@ -34,6 +35,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据条件查询数量
 	*/
+	@Override
 	public Integer findCountByParam(UserInfoBeautyQuery query) {
 		return this.userInfoBeautyMapper.selectCount(query);
 	}
@@ -41,6 +43,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 分页查询
 	*/
+	@Override
 	public PaginationResultVO<UserInfoBeauty> findListByPage(UserInfoBeautyQuery query) {
 		Integer count = this.findCountByParam(query);
 		Integer pageSize = query.getPageSize() == null ? PageSize.SIZE15.getSize() : query.getPageSize();
@@ -54,6 +57,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 新增
 	*/
+	@Override
 	public Integer add(UserInfoBeauty bean) {
 		return this.userInfoBeautyMapper.insert(bean);
 	}
@@ -61,6 +65,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 批量新增
 	*/
+	@Override
 	public Integer addBatch(List<UserInfoBeauty> listBean) {
 		if (listBean == null || listBean.isEmpty()) {
 			return 0;
@@ -71,6 +76,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 批量新增/修改
 	*/
+	@Override
 	public Integer addOrUpdateBatch(List<UserInfoBeauty> listBean) {
 		if (listBean == null || listBean.isEmpty()) {
 			return 0;
@@ -82,6 +88,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据Id查询
 	*/
+	@Override
 	public UserInfoBeauty getUserInfoBeautyById(Integer id) {
 		return this.userInfoBeautyMapper.selectById(id);
 	}
@@ -89,6 +96,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据Id更新
 	*/
+	@Override
 	public Integer updateUserInfoBeautyById(UserInfoBeauty bean, Integer id) {
 		return this.userInfoBeautyMapper.updateById(bean, id);
 	}
@@ -96,6 +104,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据Id删除
 	*/
+	@Override
 	public Integer deleteUserInfoBeautyById(Integer id) {
 		return this.userInfoBeautyMapper.deleteById(id);
 	}
@@ -103,6 +112,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据UserId查询
 	*/
+	@Override
 	public UserInfoBeauty getUserInfoBeautyByUserId(String userId) {
 		return this.userInfoBeautyMapper.selectByUserId(userId);
 	}
@@ -110,6 +120,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据UserId更新
 	*/
+	@Override
 	public Integer updateUserInfoBeautyByUserId(UserInfoBeauty bean, String userId) {
 		return this.userInfoBeautyMapper.updateByUserId(bean, userId);
 	}
@@ -117,6 +128,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据UserId删除
 	*/
+	@Override
 	public Integer deleteUserInfoBeautyByUserId(String userId) {
 		return this.userInfoBeautyMapper.deleteByUserId(userId);
 	}
@@ -124,6 +136,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据Email查询
 	*/
+	@Override
 	public UserInfoBeauty getUserInfoBeautyByEmail(String email) {
 		return this.userInfoBeautyMapper.selectByEmail(email);
 	}
@@ -131,6 +144,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据Email更新
 	*/
+	@Override
 	public Integer updateUserInfoBeautyByEmail(UserInfoBeauty bean, String email) {
 		return this.userInfoBeautyMapper.updateByEmail(bean, email);
 	}
@@ -138,6 +152,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	/**
 	 * 根据Email删除
 	*/
+	@Override
 	public Integer deleteUserInfoBeautyByEmail(String email) {
 		return this.userInfoBeautyMapper.deleteByEmail(email);
 	}

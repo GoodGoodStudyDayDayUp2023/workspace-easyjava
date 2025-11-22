@@ -6,7 +6,7 @@ package com.easychat.entity.query;
  * @Description:靓号表
 查询对象
  * @author:lhc
- * @date:2025/11/22
+ * @date:2025/11/23
 */
 public class UserInfoBeautyQuery extends BaseQuery {
 	/**
