@@ -89,6 +89,7 @@ public class BuildController {
             bw.newLine();
             bw.newLine();
 
+            BuildComment.createFieldComment(bw, "根据条件分页查询");
             bw.write("\t@RequestMapping(\"loadDataList\")");
             bw.newLine();
             bw.write("\tpublic ResponseVO loadDataList(" + tableInfo.getBeanParamName() + " query) {");
