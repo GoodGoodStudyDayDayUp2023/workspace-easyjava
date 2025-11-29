@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * @Description:联系人申请
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public class UserContactApply implements Serializable {
 	/**

@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * @Description:用户信息
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public class UserInfo implements Serializable {
 	/**

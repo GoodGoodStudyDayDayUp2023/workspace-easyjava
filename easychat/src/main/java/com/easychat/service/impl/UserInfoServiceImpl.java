@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @Description:用户信息Service
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 @Service("userInfoService")
 public class UserInfoServiceImpl implements UserInfoService {
@@ -23,6 +23,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Resource
 	 private UserInfoMapper<UserInfo,UserInfoQuery>userInfoMapper;
 
+	private UserInfoMapper<UserInfo, UserInfoQuery> userInfoMapper;
 	/**
 	 * 根据条件查询列表
 	*/
@@ -81,6 +82,24 @@ public class UserInfoServiceImpl implements UserInfoService {
 			return 0;
 		}
 		return this.userInfoMapper.insertOrUpdateBatch(listBean);
+	}
+
+	/**
+	 * 多条件更新
+	 */
+	@Override
+	public Integer updateByParam(UserInfo bean, UserInfoQuery param) {
+		StringTools.checkParam(param);
+		return this.userInfoMapper.updateByParam(bean, param);
+	}
+
+	/**
+	 * 多条件删除
+	 */
+	@Override
+	public Integer deleteByParam(UserInfoQuery param) {
+		StringTools.checkParam(param);
+		return this.userInfoMapper.deleteByParam(param);
 	}
 
 

@@ -154,6 +154,32 @@
 		</foreach>
 			on DUPLICATE key update id = VALUES(id),user_id = VALUES(user_id),email = VALUES(email),status = VALUES(status)
 	</insert>
+	<!--多条件修改-->
+	<update id="updateByParam" parameterType="com.easychat.entity.query.UserInfoBeautyQuery">
+		 UPDATE user_info_beauty u
+ 		 <set> 
+			<if test="bean.id != null">
+				 id = #{bean.id},
+			</if>
+			<if test="bean.userId != null">
+				 user_id = #{bean.userId},
+			</if>
+			<if test="bean.email != null">
+				 email = #{bean.email},
+			</if>
+			<if test="bean.status != null">
+				 status = #{bean.status},
+			</if>
+ 		 </set>
+ 		 <include refid="query_condition" />
+	</update>
+
+	<!--多条件删除-->
+	<delete id="deleteByParam">
+		 delete u from user_info_beauty u
+ 		 <include refid="query_condition" />
+	</delete>
+
 
 	<!-- 根据Id查询-->
 	<select id="selectById" resultMap="base_result_map">

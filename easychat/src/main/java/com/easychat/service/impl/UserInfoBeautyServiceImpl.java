@@ -16,7 +16,7 @@ import java.util.List;
  * @Description:靓号表
 Service
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 @Service("userInfoBeautyService")
 public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
@@ -24,6 +24,7 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 	@Resource
 	 private UserInfoBeautyMapper<UserInfoBeauty,UserInfoBeautyQuery>userInfoBeautyMapper;
 
+	private UserInfoBeautyMapper<UserInfoBeauty, UserInfoBeautyQuery> userInfoBeautyMapper;
 	/**
 	 * 根据条件查询列表
 	*/
@@ -82,6 +83,24 @@ public class UserInfoBeautyServiceImpl implements UserInfoBeautyService {
 			return 0;
 		}
 		return this.userInfoBeautyMapper.insertOrUpdateBatch(listBean);
+	}
+
+	/**
+	 * 多条件更新
+	 */
+	@Override
+	public Integer updateByParam(UserInfoBeauty bean, UserInfoBeautyQuery param) {
+		StringTools.checkParam(param);
+		return this.userInfoBeautyMapper.updateByParam(bean, param);
+	}
+
+	/**
+	 * 多条件删除
+	 */
+	@Override
+	public Integer deleteByParam(UserInfoBeautyQuery param) {
+		StringTools.checkParam(param);
+		return this.userInfoBeautyMapper.deleteByParam(param);
 	}
 
 

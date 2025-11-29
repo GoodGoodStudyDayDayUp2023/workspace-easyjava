@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * @Description:
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public class GroupInfo implements Serializable {
 	/**

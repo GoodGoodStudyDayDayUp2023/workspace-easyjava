@@ -9,7 +9,7 @@ import java.util.List;
  * @Description:靓号表
 Service
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public interface UserInfoBeautyService{
 
@@ -43,6 +43,16 @@ public interface UserInfoBeautyService{
 	*/
 	Integer addOrUpdateBatch(List<UserInfoBeauty> listBean);
 
+
+	/**
+	 * 多条件更新
+	 */
+	Integer updateByParam(UserInfoBeauty bean,UserInfoBeautyQuery param);
+
+	/**
+	 * 多条件删除
+	 */
+	Integer deleteByParam(UserInfoBeautyQuery param);
 	/**
 	 * 根据Id查询
 	*/

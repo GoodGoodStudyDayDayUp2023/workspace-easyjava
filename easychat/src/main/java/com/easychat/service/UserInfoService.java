@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @Description:用户信息Service
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public interface UserInfoService{
 
@@ -42,6 +42,16 @@ public interface UserInfoService{
 	*/
 	Integer addOrUpdateBatch(List<UserInfo> listBean);
 
+
+	/**
+	 * 多条件更新
+	 */
+	Integer updateByParam(UserInfo bean,UserInfoQuery param);
+
+	/**
+	 * 多条件删除
+	 */
+	Integer deleteByParam(UserInfoQuery param);
 	/**
 	 * 根据UserId查询
 	*/

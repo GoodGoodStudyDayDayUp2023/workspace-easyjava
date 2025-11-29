@@ -2,11 +2,17 @@ package com.easyjava.bean;
 
 import com.easyjava.utils.PropertiesUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Constants {
 
     public static String AUTHOR_COMMENT;
 
     public static Boolean IGNORE_TABLE_PREFIX;
+
+    public static List<String> TABLE_SPLIT;
 
     public static String SUFFIX_BEAN_QUERY;
 
@@ -32,6 +38,8 @@ public class Constants {
 
     public static String PACKAGE_BASE;
 
+    public static String PACKAGE_PARAM;
+
     public static String PACKAGE_PO;
 
     public static String PACKAGE_QUERY;
@@ -53,6 +61,8 @@ public class Constants {
     public static String PACKAGE_CONTROLLER;
 
     public static String PATH_BASE;
+
+    public static String PATH_PARAM;
 
     public static String PATH_PO;
 
@@ -91,6 +101,14 @@ public class Constants {
         BEAN_DATE_UNSERIALIZE_CLASS = PropertiesUtils.getString("bean.date.unserialize.class");
 
         IGNORE_TABLE_PREFIX = Boolean.valueOf(PropertiesUtils.getString("ignore.table.prefix"));
+        /**
+         * 是否分表
+         */
+        String tableSplit = PropertiesUtils.getString("table.split");
+
+        TABLE_SPLIT = null == tableSplit ? new ArrayList<>() : Arrays.asList(tableSplit.split(","));
+
+
         SUFFIX_BEAN_QUERY = PropertiesUtils.getString("suffix.bean.query");
         SUFFIX_BEAN_QUERY_FUZZY = PropertiesUtils.getString("suffix.bean.query.fuzzy");
         SUFFIX_BEAN_QUERY_START = PropertiesUtils.getString("suffix.bean.query.start");
@@ -100,6 +118,7 @@ public class Constants {
         PACKAGE_BASE = PropertiesUtils.getString("package.base");
         //PO
         PACKAGE_PO = PACKAGE_BASE + "." + PropertiesUtils.getString("package.po");
+        PACKAGE_PARAM = PACKAGE_BASE + "." + PropertiesUtils.getString("package.param");
         PACKAGE_QUERY = PACKAGE_BASE + "." + PropertiesUtils.getString("package.query");
         PACKAGE_VO = PACKAGE_BASE + "." + PropertiesUtils.getString("package.vo");
         PACKAGE_UTILS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.utils");
@@ -115,6 +134,7 @@ public class Constants {
 
         PATH_PO = PATH_BASE + "/" + PACKAGE_PO.replace(".", "/");
         PATH_QUERY = PATH_BASE + "/" + PACKAGE_QUERY.replace(".", "/");
+        PATH_PARAM = PATH_BASE + PACKAGE_PARAM.replace(".", "/");
         PATH_VO = PATH_BASE + "/" + PACKAGE_VO.replace(".", "/");
         PATH_UTILS = PATH_BASE + "/" + PACKAGE_UTILS.replace(".", "/");
         PATH_ENUMS = PATH_BASE + "/" + PACKAGE_ENUMS.replace(".", "/");

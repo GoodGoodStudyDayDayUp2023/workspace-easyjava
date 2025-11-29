@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @Description:联系人Service
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public interface UserContactService{
 
@@ -42,6 +42,16 @@ public interface UserContactService{
 	*/
 	Integer addOrUpdateBatch(List<UserContact> listBean);
 
+
+	/**
+	 * 多条件更新
+	 */
+	Integer updateByParam(UserContact bean,UserContactQuery param);
+
+	/**
+	 * 多条件删除
+	 */
+	Integer deleteByParam(UserContactQuery param);
 	/**
 	 * 根据UserIdAndContactId查询
 	*/

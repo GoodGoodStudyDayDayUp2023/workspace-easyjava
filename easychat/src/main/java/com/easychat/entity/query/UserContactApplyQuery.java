@@ -5,7 +5,7 @@ package com.easychat.entity.query;
 /**
  * @Description:联系人申请查询对象
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public class UserContactApplyQuery extends BaseQuery {
 	/**

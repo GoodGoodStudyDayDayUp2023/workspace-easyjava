@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @Description:Service
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 @Service("groupInfoService")
 public class GroupInfoServiceImpl implements GroupInfoService {
@@ -23,6 +23,7 @@ public class GroupInfoServiceImpl implements GroupInfoService {
 	@Resource
 	 private GroupInfoMapper<GroupInfo,GroupInfoQuery>groupInfoMapper;
 
+	private GroupInfoMapper<GroupInfo, GroupInfoQuery> groupInfoMapper;
 	/**
 	 * 根据条件查询列表
 	*/
@@ -81,6 +82,24 @@ public class GroupInfoServiceImpl implements GroupInfoService {
 			return 0;
 		}
 		return this.groupInfoMapper.insertOrUpdateBatch(listBean);
+	}
+
+	/**
+	 * 多条件更新
+	 */
+	@Override
+	public Integer updateByParam(GroupInfo bean, GroupInfoQuery param) {
+		StringTools.checkParam(param);
+		return this.groupInfoMapper.updateByParam(bean, param);
+	}
+
+	/**
+	 * 多条件删除
+	 */
+	@Override
+	public Integer deleteByParam(GroupInfoQuery param) {
+		StringTools.checkParam(param);
+		return this.groupInfoMapper.deleteByParam(param);
 	}
 
 

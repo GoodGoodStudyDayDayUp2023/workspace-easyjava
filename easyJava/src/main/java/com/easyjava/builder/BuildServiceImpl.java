@@ -90,6 +90,20 @@ public class BuildServiceImpl {
             bw.newLine();
             bw.newLine();
 
+
+            String beanName = tableInfo.getBeanName();
+            String paramMapper = beanName + Constants.SUFFIX_MAPPERS;
+            paramMapper = paramMapper.substring(0, 1).toLowerCase() + paramMapper.substring(1);
+            bw.write("\tprivate " + tableInfo.getBeanName() + Constants.SUFFIX_MAPPERS + "<" + tableInfo.getBeanName() + ", " + tableInfo.getBeanParamName() + "> " + paramMapper + ";");
+            bw.newLine();
+            String tableNameParam = "";
+            String tableNameParamName = "";
+            Boolean splitTable = Constants.TABLE_SPLIT.contains(tableInfo.getSourceTableName());
+            if (splitTable) {
+                tableNameParam = "String tableName,";
+                tableNameParamName = "tableName,";
+            }
+
             BuildComment.createFieldComment(bw, "根据条件查询列表");
             bw.write("\t@Override");
             bw.newLine();
@@ -165,6 +179,7 @@ public class BuildServiceImpl {
 
             bw.newLine();
             bw.newLine();
+            //批量新增
             BuildComment.createFieldComment(bw, "批量新增/修改");
             bw.write("\t@Override");
             bw.newLine();
@@ -177,6 +192,34 @@ public class BuildServiceImpl {
             bw.write("\t\t}");
             bw.newLine();
             bw.write("\t\treturn this." + mapperBeanName + ".insertOrUpdateBatch(listBean);");
+            bw.newLine();
+            bw.write("\t}");
+            bw.newLine();
+
+            //多条件更新
+            bw = BuildComment.buildMethodComment(bw, "多条件更新");
+            bw.newLine();
+            bw.write("\t@Override");
+            bw.newLine();
+            bw.write("\tpublic Integer updateByParam(" + tableNameParam + tableInfo.getBeanName() + " bean, " + tableInfo.getBeanParamName() + " param) {");
+            bw.newLine();
+            bw.write("\t\tStringTools.checkParam(param);");
+            bw.newLine();
+            bw.write("\t\treturn this." + paramMapper + ".updateByParam(" + tableNameParamName + "bean, param);");
+            bw.newLine();
+            bw.write("\t}");
+            bw.newLine();
+
+            //多条件删除
+            bw = BuildComment.buildMethodComment(bw, "多条件删除");
+            bw.newLine();
+            bw.write("\t@Override");
+            bw.newLine();
+            bw.write("\tpublic Integer deleteByParam(" + tableNameParam + tableInfo.getBeanParamName() + " param) {");
+            bw.newLine();
+            bw.write("\t\tStringTools.checkParam(param);");
+            bw.newLine();
+            bw.write("\t\treturn this." + paramMapper + ".deleteByParam(" + tableNameParamName + "param);");
             bw.newLine();
             bw.write("\t}");
             bw.newLine();

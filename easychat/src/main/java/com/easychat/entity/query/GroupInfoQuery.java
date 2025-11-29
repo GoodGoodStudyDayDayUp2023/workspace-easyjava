@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * @Description:查询对象
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public class GroupInfoQuery extends BaseQuery {
 	/**

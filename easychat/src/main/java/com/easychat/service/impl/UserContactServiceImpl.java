@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @Description:联系人Service
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 @Service("userContactService")
 public class UserContactServiceImpl implements UserContactService {
@@ -23,6 +23,7 @@ public class UserContactServiceImpl implements UserContactService {
 	@Resource
 	 private UserContactMapper<UserContact,UserContactQuery>userContactMapper;
 
+	private UserContactMapper<UserContact, UserContactQuery> userContactMapper;
 	/**
 	 * 根据条件查询列表
 	*/
@@ -81,6 +82,24 @@ public class UserContactServiceImpl implements UserContactService {
 			return 0;
 		}
 		return this.userContactMapper.insertOrUpdateBatch(listBean);
+	}
+
+	/**
+	 * 多条件更新
+	 */
+	@Override
+	public Integer updateByParam(UserContact bean, UserContactQuery param) {
+		StringTools.checkParam(param);
+		return this.userContactMapper.updateByParam(bean, param);
+	}
+
+	/**
+	 * 多条件删除
+	 */
+	@Override
+	public Integer deleteByParam(UserContactQuery param) {
+		StringTools.checkParam(param);
+		return this.userContactMapper.deleteByParam(param);
 	}
 
 

@@ -368,6 +368,51 @@ public class BuildMapperXml {
             bw.write("\t</insert>");
             bw.newLine();
 
+
+            //定义表别名
+            String tableAlias = tableInfo.getBeanName().substring(0, 1).toLowerCase();
+
+            //多条件更新
+            bw.write("\t<!--多条件修改-->");
+            bw.newLine();
+            bw.write("\t<update id=\"updateByParam\" parameterType=\"" + Constants.PACKAGE_PARAM + "." + tableInfo.getBeanParamName() + "\">");
+            bw.newLine();
+            bw.write("\t\t UPDATE " + tableInfo.getTableName() + " " + tableAlias);
+            bw.newLine();
+            bw.write(" \t\t <set> ");
+            bw.newLine();
+            for (FieldInfo FieldInfo : tableInfo.getFieldList()) {
+                if ((null != FieldInfo.getAutoIncrement() && FieldInfo.getAutoIncrement())) {
+                    continue;
+                }
+                bw.write("\t\t\t<if test=\"bean." + FieldInfo.getPropertyName() + " != null\">");
+                bw.newLine();
+                bw.write("\t\t\t\t " + FieldInfo.getFieldName() + " = #{bean." + FieldInfo.getPropertyName() + "},");
+                bw.newLine();
+                bw.write("\t\t\t</if>");
+                bw.newLine();
+            }
+            bw.write(" \t\t </set>");
+            bw.newLine();
+            bw.write(" \t\t <include refid=\"query_condition\" />");
+            bw.newLine();
+            bw.write("\t</update>");
+            bw.newLine();
+            bw.newLine();
+
+            //多条件删除
+            bw.write("\t<!--多条件删除-->");
+            bw.newLine();
+            bw.write("\t<delete id=\"deleteByParam\">");
+            bw.newLine();
+            bw.write("\t\t delete " + tableAlias + " from " + tableInfo.getTableName() + " " + tableAlias);
+            bw.newLine();
+            bw.write(" \t\t <include refid=\"query_condition\" />");
+            bw.newLine();
+            bw.write("\t</delete>");
+            bw.newLine();
+            bw.newLine();
+
             //根据主键更新
             Map<String, List<FieldInfo>> keyINdexMap = tableInfo.getKeyIndexMap();
             for (Map.Entry<String, List<FieldInfo>> entry : keyINdexMap.entrySet()) {

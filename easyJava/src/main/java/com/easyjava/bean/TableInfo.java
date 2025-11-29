@@ -57,6 +57,16 @@ public class TableInfo {
      */
     private Boolean haveBigDecimal;
 
+    public String getSourceTableName() {
+        return sourceTableName;
+    }
+
+    public void setSourceTableName(String sourceTableName) {
+        this.sourceTableName = sourceTableName;
+    }
+
+    private String sourceTableName;
+
     public String getTableName() {
         return tableName;
     }

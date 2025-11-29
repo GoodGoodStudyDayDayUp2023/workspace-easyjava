@@ -35,4 +35,22 @@ public class BuildComment {
         bw.newLine();
 
     }
+
+    /**
+     * 构建方法上面的注释
+     *
+     * @param bw
+     * @param text
+     * @return
+     * @throws IOException
+     */
+    public static BufferedWriter buildMethodComment(BufferedWriter bw, String text) throws IOException {
+        bw.newLine();
+        bw.write("\t/**");
+        bw.newLine();
+        bw.write("\t * " + text);
+        bw.newLine();
+        bw.write("\t */");
+        return bw;
+    }
 }

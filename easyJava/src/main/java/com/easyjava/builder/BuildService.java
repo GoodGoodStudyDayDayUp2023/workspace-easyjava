@@ -36,18 +36,12 @@ public class BuildService {
             bw.newLine();
             bw.newLine();
 
+            String tableNameParam = "";
+            Boolean splitTable = Constants.TABLE_SPLIT.contains(tableInfo.getSourceTableName());
+            if (splitTable) {
+                tableNameParam = "String tableName,";
+            }
 
-//            if (tableInfo.getHaveDate() || tableInfo.getHaveDateTime()) {
-//                bw.write(Constants.BEAN_DATE_SERIALIZE_CLASS);
-//                bw.newLine();
-//                bw.write(Constants.BEAN_DATE_UNSERIALIZE_CLASS);
-//                bw.newLine();
-//
-//                bw.write("import " + Constants.PACKAGE_ENUMS + ".DateTimePatternEnum;");
-//                bw.newLine();
-//                bw.write("import " + Constants.PACKAGE_UTILS + ".DateUtils;");
-//                bw.newLine();
-//            }
             bw.write("import " + Constants.PACKAGE_VO + ".PaginationResultVO;");
             bw.newLine();
             bw.write("import " + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + ";");
@@ -92,6 +86,16 @@ public class BuildService {
             BuildComment.createFieldComment(bw, "批量新增/修改");
             bw.write("\tInteger addOrUpdateBatch(List<" + tableInfo.getBeanName() + "> listBean);");
             bw.newLine();
+            bw.newLine();
+
+            bw = BuildComment.buildMethodComment(bw, "多条件更新");
+            bw.newLine();
+            bw.write("\tInteger updateByParam(" + tableNameParam + tableInfo.getBeanName() + " bean," + tableInfo.getBeanParamName() + " param);");
+            bw.newLine();
+
+            bw = BuildComment.buildMethodComment(bw, "多条件删除");
+            bw.newLine();
+            bw.write("\tInteger deleteByParam(" + tableNameParam + tableInfo.getBeanParamName() + " param);");
             bw.newLine();
 
             for (Map.Entry<String, List<FieldInfo>> entry : tableInfo.getKeyIndexMap().entrySet()) {

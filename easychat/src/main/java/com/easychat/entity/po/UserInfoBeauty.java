@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Description:靓号表
 
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public class UserInfoBeauty implements Serializable {
 	/**

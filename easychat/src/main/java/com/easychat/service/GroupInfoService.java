@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @Description:Service
  * @author:lhc
- * @date:2025/11/29
+ * @date:2025/12/04
 */
 public interface GroupInfoService{
 
@@ -42,6 +42,16 @@ public interface GroupInfoService{
 	*/
 	Integer addOrUpdateBatch(List<GroupInfo> listBean);
 
+
+	/**
+	 * 多条件更新
+	 */
+	Integer updateByParam(GroupInfo bean,GroupInfoQuery param);
+
+	/**
+	 * 多条件删除
+	 */
+	Integer deleteByParam(GroupInfoQuery param);
 	/**
 	 * 根据GroupId查询
 	*/
