@@ -132,7 +132,7 @@ public class Constants {
 //        System.out.println(PATH_PO);
     }
 
-    public final static String[] SQL_DATE_TIME_TYPE = new String[]{"datetime", "tiemstamp"};
+    public final static String[] SQL_DATE_TIME_TYPE = new String[]{"datetime", "timestamp"};
 
     public final static String[] SQL_DATE_TYPE = new String[]{"date"};
 

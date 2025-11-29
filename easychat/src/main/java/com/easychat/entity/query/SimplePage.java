@@ -1,6 +1,6 @@
 package com.easychat.entity.query;
 
-import com.easychat.enums.PageSize;
+import com.easychat.entity.enums.PageSize;
 
 public class SimplePage {
 	private Integer pageNo;

@@ -1,4 +1,4 @@
-package com.easychat.enums;
+package com.easychat.entity.enums;
 
 public enum ResponseCodeEnum {
     CODE_200(200, "请求成功"),

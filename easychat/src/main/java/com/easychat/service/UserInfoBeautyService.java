@@ -9,7 +9,7 @@ import java.util.List;
  * @Description:靓号表
 Service
  * @author:lhc
- * @date:2025/11/23
+ * @date:2025/11/29
 */
 public interface UserInfoBeautyService{
 

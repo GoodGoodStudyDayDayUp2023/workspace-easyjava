@@ -1,7 +1,7 @@
 package com.easychat.service.impl;
 
 import com.easychat.entity.query.SimplePage;
-import com.easychat.enums.PageSize;
+import com.easychat.entity.enums.PageSize;
 import com.easychat.entity.vo.PaginationResultVO;
 import com.easychat.entity.po.UserInfo;
 import com.easychat.entity.query.UserInfoQuery;
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @Description:用户信息Service
  * @author:lhc
- * @date:2025/11/23
+ * @date:2025/11/29
 */
 @Service("userInfoService")
 public class UserInfoServiceImpl implements UserInfoService {

@@ -1,4 +1,4 @@
-package com.easychat.enums;
+package com.easychat.entity.enums;
 
 public enum DateTimePatternEnum {
     YYYY_MM_DD_HH_MM_SS("yyyy-MM-dd HH:mm:ss"),

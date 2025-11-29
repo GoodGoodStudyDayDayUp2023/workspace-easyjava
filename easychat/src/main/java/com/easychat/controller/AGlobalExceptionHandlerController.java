@@ -1,6 +1,6 @@
 package com.easychat.controller;
 
-import com.easychat.enums.ResponseCodeEnum;;
+import com.easychat.entity.enums.ResponseCodeEnum;;
 
 import com.easychat.entity.vo.ResponseVO;;
 

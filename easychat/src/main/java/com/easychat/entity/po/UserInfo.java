@@ -2,7 +2,7 @@ package com.easychat.entity.po;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
-import com.easychat.enums.DateTimePatternEnum;
+import com.easychat.entity.enums.DateTimePatternEnum;
 import com.easychat.utils.DateUtils;
 
 
@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * @Description:用户信息
  * @author:lhc
- * @date:2025/11/23
+ * @date:2025/11/29
 */
 public class UserInfo implements Serializable {
 	/**
